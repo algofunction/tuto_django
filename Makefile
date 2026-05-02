@@ -7,18 +7,26 @@ MAKEFLAGS+="-j 2"
 
 .PHONY: build
 build:
+	docker compose build
+
+.PHONY: build-dev
+build-dev:
 	docker compose build --progress=plain --no-cache
-
-.PHONY: dev
-dev:
-	docker compose up -d
-
-.PHONY: stop
-stop:
-	docker compose down
 
 .PHONY: bash
 bash:
-	docker compose exec tuto_django bash
+	docker compose run tuto_django bash
 
-# end
+.PHONY: poetry-lock
+poetry-lock:
+	docker compose run tuto_django poetry lock
+
+.PHONY: poetry-lock
+poetry-add:
+	docker compose run tuto_django poetry add $(pkg)
+
+
+.PHONY: poetry-update
+poetry-update:
+	docker compose run tuto_django poetry update
+
