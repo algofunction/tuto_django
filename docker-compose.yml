@@ -1,5 +1,4 @@
 services:
-
   tuto_django:
     container_name: tuto_django
     build: .

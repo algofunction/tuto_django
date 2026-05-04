@@ -30,3 +30,9 @@ poetry-add:
 poetry-update:
 	docker compose run tuto_django poetry update
 
+.PHONY: update
+update:
+	docker compose run tuto_django make -C tuto/project update
+
+
+

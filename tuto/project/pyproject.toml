@@ -1,0 +1,20 @@
+[project]
+name = "tuto"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Your Name", email = "you@example.com"}
+]
+# Note : suppression du ^ pour être au standard PEP 621
+requires-python = ">=3.12"
+dependencies = [
+    "django >=5.0,<6.0"
+]
+
+[tool.poetry]
+# Cette ligne est la clé pour ignorer les erreurs de structure de dossiers
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -8,18 +8,17 @@ RUN apt update && apt install -y \
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
 
-
 RUN pip install --upgrade pip
 RUN pip install poetry
 
 RUN groupadd -g "${GID}" django && useradd --create-home --no-log-init -u "${UID}" -g "${GID}" django
 
-RUN mkdir /opt/app
-RUN chown "${UID}:${GID}" /opt/app
+RUN mkdir -p /opt/app/tuto/project
+RUN chown -R "${UID}:${GID}" /opt/app
 
 USER django
 
 WORKDIR /opt/app
 
-COPY --chown="${UID}:${GID}" tuto/pyproject.toml tuto/poetry.* /opt/app
-RUN poetry install --no-interaction --no-ansi
+COPY --chown="${UID}:${GID}" tuto/project/pyproject.toml tuto/project/poetry.lock /opt/app/tuto/project/
+RUN poetry -C tuto/project install --no-interaction --no-ansi
