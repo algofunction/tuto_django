@@ -8,7 +8,9 @@ authors = [
 # Note : suppression du ^ pour être au standard PEP 621
 requires-python = ">=3.12"
 dependencies = [
-    "django >=5.0,<6.0"
+    "django >=5.0,<6.0",
+    "psycopg2-binary (>=2.9.12,<3.0.0)",
+    "bpython (>=0.26,<0.27)"
 ]
 
 [tool.poetry]
