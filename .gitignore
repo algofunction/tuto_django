@@ -167,3 +167,7 @@ tuto/project/static/*
 !tuto/project/static/media
 tuto/project/static/media/*
 !tuto/project/static/media/README.md
+
+
+# Django collectstatic
+tuto/project/staticfiles/
